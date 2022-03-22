@@ -1,2 +1,2 @@
 # xray-tp
-xray安卓tproxy规则
+xray安卓tproxy规则gid方式
