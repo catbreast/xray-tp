@@ -1,0 +1,95 @@
+{
+	"routing": {
+		"domainStrategy": "AsIs",
+		"rules": [{
+				"inboundTag": [
+					"dns-in"
+				],
+				"outboundTag": "dns-out",
+				"type": "field"
+			},
+			{
+				"outboundTag": "dns-out",
+				"protocol": [
+					"dns"
+				],
+				"type": "field"
+			},
+			{
+				"ip": [
+					"45.14.65.21",
+					"42.202.33.102"
+				],
+				"outboundTag": "direct",
+				"type": "field"
+			},
+			{
+				"domain": [
+					"domain:appcenter.ms",
+					"domain:app-measurement.com",
+					"domain:firebase.io",
+					"domain:crashlytics.com",
+					"domain:google-analytics.com"
+				],
+				"outboundTag": "block",
+				"type": "field"
+			},
+			{
+				"domain": [
+					"geosite:category-ads-all"
+				],
+				"outboundTag": "block",
+				"type": "field"
+			},
+			{
+				"ip": [
+					"geoip:private"
+				],
+				"outboundTag": "direct",
+				"type": "field"
+			},
+			{
+				"domain": [
+					"geosite:private"
+				],
+				"outboundTag": "direct",
+				"type": "field"
+			},
+			{
+				"domain": [
+					"geolocation-!cn"
+				],
+				"outboundTag": "proxy-nocn",
+				"type": "field"
+			},
+			{
+				"ip": [
+					"geoip:!cn"
+				],
+				"outboundTag": "proxy-nocn",
+				"type": "field"
+			},
+			{
+				"domain": [
+					"domain:googleapis.cn"
+				],
+				"outboundTag": "proxy-nocn",
+				"type": "field"
+			},
+			{
+				"domain": [
+					"geosite:cn"
+				],
+				"outboundTag": "proxy-cn",
+				"type": "field"
+			},
+			{
+				"ip": [
+					"geoip:cn"
+				],
+				"outboundTag": "proxy-cn",
+				"type": "field"
+			}
+		]
+	}
+}
