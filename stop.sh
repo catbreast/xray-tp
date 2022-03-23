@@ -1,16 +1,13 @@
-#删除转发规则
-iptables -t nat -D DNS -p udp --dport 53 -j REDIRECT --to-ports 1053
-iptables -t nat -D OUTPUT -m owner ! --gid-owner 23333 -j DNS
-iptables -t mangle -D XRAY_MASK
-iptables -t mangle -D OUTPUT -j XRAY_MASK
-iptables -t mangle -D XRAY
-iptables -t mangle -D PREROUTING -j XRAY
-iptables -t mangle -F XRAY_MASK
-iptables -t mangle -F XRAY
+#删除转发
 iptables -t nat -F DNS
-iptables -t mangle -X XRAY
-iptables -t mangle -X XRAY_MASK
+iptables -t nat -F OUTPUT
+iptables -t mangle -F OUTPUT
+iptables -t mangle -F XRAY_MASK
+iptables -t mangle -F PREROUTING
+iptables -t mangle -F XRAY
 iptables -t nat -X DNS
+iptables -t mangle -X XRAY_MASK
+iptables -t mangle -X XRAY
 #删除链表
 ip rule del fwmark 1 table 100
 #删除路由
