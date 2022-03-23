@@ -2,7 +2,7 @@ lan1=`ip address | grep -w inet | awk '{print $2}' | sed -n '1,1p'`
 lan2=`ip address | grep -w inet | awk '{print $2}' | sed -n '2,1p'`
 
 ulimit -SHn 1000000
-setuidgid 0:23333 "/data/adb/xray/xray"&
+/data/adb/magisk/busybox setuidgid 0:23333 /data/adb/xray/xray run -confdir /data/adb/xray/conf &
 
 
 ip route add local default dev lo table 100 # 添加路由表 100
@@ -45,4 +45,5 @@ iptables -t mangle -A OUTPUT -p udp -j XRAY_MASK
 ##dns
 iptables -t nat -N DNS
 iptables -t nat -A DNS -p udp --dport 53 -j REDIRECT --to-ports 1053
+iptables -t nat -A DNS -p tcp --dport 53 -j REDIRECT --to-ports 1053
 iptables -t nat -I OUTPUT -m owner ! --gid-owner 23333 -j DNS
