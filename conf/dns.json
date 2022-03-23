@@ -1,0 +1,49 @@
+{
+
+	"dns": {		"servers": [{
+
+				"address": "1.0.0.1",
+
+				"port": 53,
+
+				"domains": [
+
+					"geosite:geolocation-!cn"
+
+				]
+
+			},
+
+			{
+
+				"address": "https://101.6.6.6:8443/dns-query",
+
+				"domains": [
+
+					"geosite:cn",
+
+					"geosite:geolocation-cn"
+
+				]
+
+			},
+
+			"https://101.6.6.6:8443/dns-query"
+
+		],
+
+		"tag": "dns",
+
+		"queryStrategy": "UseIP"
+
+	},
+
+	"log": {
+
+		"error": "/storage/emulated/0/Android/xray.log",
+
+		"loglevel": "warning"
+
+	}
+
+}
