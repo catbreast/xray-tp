@@ -1,0 +1,28 @@
+{
+	"inbounds": [{
+			"listen": "0.0.0.0",
+			"port": 12345,
+			"protocol": "dokodemo-door",
+			"settings": {
+				"network": "tcp,udp",
+				"followRedirect": true
+			},
+			"streamSettings": {
+				"sockopt": {
+					"tproxy": "tproxy"
+				}
+			}
+		},
+		{
+			"listen": "127.0.0.1",
+			"port": 1053,
+			"protocol": "dokodemo-door",
+			"settings": {
+				"address": "1.0.0.1",
+				"network": "tcp,udp",
+				"port": 53
+			},
+			"tag": "dns-in"
+		}
+	]
+}
