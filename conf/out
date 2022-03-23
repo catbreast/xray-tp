@@ -1,0 +1,87 @@
+{
+	"outbounds": [{
+			"domainStrategy": "AsIs",
+			"protocol": "vmess",
+			"settings": {
+				"vnext": [{
+					"address": "",
+					"port": 80,
+					"users": [{
+						"id": "",
+						"security": "auto"
+					}]
+				}]
+			},
+			"streamSettings": {
+				"network": "tcp",
+				"security": "none",
+				"tcpSettings": {
+					"header": {
+						"request": {
+							"headers": {
+								"Host": [
+									"upos-tf-all-js.bilivideo.com"
+								]
+							},
+							"path": [
+								"/"
+							]
+						},
+						"type": "http"
+					}
+				}
+			},
+			"tag": "proxy-nocn"
+		},
+		{
+			"domainStrategy": "AsIs",
+			"protocol": "vmess",
+			"settings": {
+				"vnext": [{
+					"address": "",
+					"port": 80,
+					"users": [{
+						"id": "",
+						"security": "auto"
+					}]
+				}]
+			},
+			"streamSettings": {
+				"network": "tcp",
+				"security": "none",
+				"tcpSettings": {
+					"header": {
+						"request": {
+							"headers": {
+								"Host": [
+									"upos-tf-all-tx.bilivideo.com"
+								]
+							},
+							"path": [
+								"/"
+							]
+						},
+						"type": "http"
+					}
+				}
+			},
+			"tag": "proxy-cn"
+		},
+		{
+			"protocol": "freedom",
+			"tag": "direct"
+		},
+		{
+			"protocol": "blackhole",
+			"tag": "block"
+		},
+		{
+			"protocol": "dns",
+			"settings": {
+				"address": "1.0.0.1",
+				"port": 53
+			},
+			"tag": "dns-out"
+		}
+	]
+}
